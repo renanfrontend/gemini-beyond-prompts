@@ -6,6 +6,18 @@
 All colors MUST be HSL.
 */
 
+/* AI Assistant Theme */
+:root {
+  --ai-primary: 217 91% 60%;
+  --ai-primary-dark: 217 91% 50%;
+  --ai-secondary: 142 76% 36%;
+  --ai-accent: 271 91% 65%;
+  --ai-gradient: linear-gradient(135deg, hsl(var(--ai-primary)), hsl(var(--ai-accent)));
+  --ai-gradient-subtle: linear-gradient(135deg, hsl(var(--ai-primary) / 0.1), hsl(var(--ai-accent) / 0.1));
+  --ai-shadow: 0 10px 30px -10px hsl(var(--ai-primary) / 0.3);
+  --ai-glow: 0 0 20px hsl(var(--ai-primary) / 0.4);
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
