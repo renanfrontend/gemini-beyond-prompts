@@ -1,73 +1,56 @@
-# Welcome to your Lovable project
+Claro! Aqui está um README.md completo e bem estruturado para o seu projeto, combinando a descrição das funcionalidades com as instruções de instalação e uso.
+Sistema de IA Avançado com Gemini, RAG e LangGraph
+Este projeto é uma demonstração poderosa e completa de um sistema de Inteligência Artificial multifuncional, construído com tecnologias de ponta. Ele integra o poder do Google Gemini para conversação inteligente, a técnica RAG (Retrieval-Augmented Generation) para análise profunda de documentos e o LangGraph para orquestração de agentes autônomos que executam tarefas complexas.
+A interface moderna e intuitiva, desenvolvida em Next.js e TypeScript, oferece uma experiência de usuário fluida e centraliza três módulos principais em um único local.
+✨ Funcionalidades Principais
+O sistema é dividido em três áreas principais, cada uma com funcionalidades avançadas:
+🤖 1. Chat Especializado (com Gemini)
+ * Conversação com Memória: Interaja com um assistente de IA que mantém o contexto de suas conversas anteriores para fornecer respostas mais precisas e relevantes.
+ * Configuração Segura: Sua chave de API do Google Gemini é gerenciada de forma segura no lado do cliente, garantindo que ela nunca seja exposta.
+ * Interface Intuitiva: Um layout de chat familiar com indicadores de digitação, timestamps e gerenciamento de histórico.
+📄 2. Análise de Documentos (com RAG)
+ * Upload Flexível: Carregue múltiplos documentos de diversos formatos, como PDF, Word (.docx), Excel (.xlsx) e texto.
+ * Busca Semântica: Vá além da busca por palavras-chave. Pergunte em linguagem natural e encontre os trechos mais relevantes dentro de sua base de conhecimento, com base no significado e contexto.
+ * Biblioteca Inteligente: Todos os documentos são processados, indexados e organizados em uma biblioteca, com resumos gerados automaticamente.
+🎯 3. Assistente Pessoal (com LangGraph)
+ * Agentes Autônomos: Utilize agentes de IA pré-configurados (Pesquisa, Planejamento, Execução) que possuem capacidades específicas para resolver problemas.
+ * Workflows Complexos: Crie e execute fluxos de trabalho que combinam as habilidades de múltiplos agentes para realizar tarefas complexas, como uma pesquisa de mercado completa.
+ * Gerenciamento de Tarefas: Atribua tarefas individuais aos agentes, defina prioridades e acompanhe o status de execução em tempo real.
+🛠️ Tecnologias Utilizadas
+ * Frontend: Next.js, React, TypeScript
+ * IA Generativa: Google Gemini 1.5 Pro
+ * Embeddings: embedding-001 (Google AI)
+ * Orquestração de Agentes: Conceitos de LangGraph
+ * Técnica de Busca: RAG (Retrieval-Augmented Generation)
+ * UI/Componentes: shadcn/ui, Tailwind CSS
+🚀 Como Executar o Projeto
+Siga os passos abaixo para clonar e rodar o projeto em seu ambiente local.
+Pré-requisitos
+ * Node.js (versão 18 ou superior)
+ * Git
+ * Uma chave de API do Google Gemini. Você pode obter uma no Google AI Studio.
+1. Clonar o Repositório
+Abra seu terminal e clone o projeto usando o seguinte comando:
+git clone https://github.com/renanfrontend/gemini-beyond-prompts.git
 
-## Project info
+2. Navegar para o Diretório
+Entre na pasta do projeto que você acabou de clonar:
+cd gemini-beyond-prompts
 
-**URL**: https://lovable.dev/projects/0f77a51b-b9b5-412f-90c5-6babaf684f46
+3. Instalar as Dependências
+Instale todas as dependências necessárias com o npm (ou seu gerenciador de pacotes preferido):
+npm install
 
-## How can I edit this code?
-
-There are several ways of editing your application.
-
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/0f77a51b-b9b5-412f-90c5-6babaf684f46) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+4. Executar o Projeto
+Inicie o servidor de desenvolvimento:
 npm run dev
-```
 
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/0f77a51b-b9b5-412f-90c5-6babaf684f46) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+5. Abrir no Navegador
+Abra seu navegador e acesse http://localhost:3000.
+🔧 Configuração Inicial
+Ao iniciar o aplicativo pela primeira vez, você precisará configurar sua chave de API do Google Gemini para ativar as funcionalidades de IA.
+ * Acesse a aba "Chat Especializado".
+ * Insira sua chave de API do Google Gemini no campo solicitado.
+ * Clique no botão "Configurar Gemini".
+Uma vez configurado, o sistema estará pronto para uso! Você pode começar a conversar com o assistente, fazer upload de documentos e explorar os workflows dos agentes.
+Aproveite o poder da IA generativa e dos sistemas autônomos! 🎉
