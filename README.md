@@ -1,5 +1,4 @@
-Entendido. Agora com o texto completo fornecido por você, consigo reconstruir o arquivo Markdown com precisão, garantindo que não haverá cortes ou falhas.
-Aqui está o conteúdo completo, corretamente formatado dentro de um único bloco de código, pronto para ser copiado e colado no seu README.md.
+
 # Sistema de IA Avançado com Gemini, RAG e LangGraph
 
 ![Interface do Sistema de IA Avançado]()
