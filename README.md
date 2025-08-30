@@ -1,7 +1,5 @@
 # Sistema de IA Avançado com Gemini, RAG e LangGraph
 
-![Interface do Sistema de IA Avançado]()
-
 Este projeto é uma demonstração poderosa e completa de um sistema de Inteligência Artificial multifuncional, construído com tecnologias de ponta. Ele integra o poder do **Google Gemini** para conversação inteligente, a técnica **RAG (Retrieval-Augmented Generation)** para análise profunda de documentos e o **LangGraph** para orquestração de agentes autônomos que executam tarefas complexas.
 
 A interface moderna e intuitiva, desenvolvida em Next.js e TypeScript, oferece uma experiência de usuário fluida e centraliza três módulos principais em um único local.
