@@ -1,79 +1,88 @@
+# Gemini Beyond Prompts
 
-# Sistema de IA Avançado com Gemini, RAG e LangGraph
+**Demo:** https://gemini-beyond-prompts.vercel.app
 
-![Interface do Sistema de IA Avançado] https://gemini-beyond-prompts.vercel.app/
+> © 2025–2026 Renan Augusto dos Santos. **Todos os direitos reservados.** Código público apenas para avaliação de portfólio: copiar, adaptar ou reutilizar exige autorização por escrito. Veja [Licença e direitos autorais](#licença-e-direitos-autorais).
 
-Este projeto é uma demonstração poderosa e completa de um sistema de Inteligência Artificial multifuncional, construído com tecnologias de ponta. Ele integra o poder do **Google Gemini** para conversação inteligente, a técnica **RAG (Retrieval-Augmented Generation)** para análise profunda de documentos e o **LangGraph** para orquestração de agentes autônomos que executam tarefas complexas.
+![Tela inicial do Gemini Beyond Prompts com os módulos de chat, análise de documentos e assistente](docs/screenshot.png)
 
-A interface moderna e intuitiva, desenvolvida em Next.js e TypeScript, oferece uma experiência de usuário fluida e centraliza três módulos principais em um único local.
+Protótipo de um painel de IA que vai além do campo de prompt, com três módulos: chat com o Google Gemini, análise de documentos no estilo RAG e um assistente com agentes inspirado no LangGraph. O chat conversa de verdade com a API do Gemini. Os outros dois módulos são protótipos de interface, com o processamento simulado no navegador; o banco para a versão completa (Supabase com pgvector) já está modelado.
 
----
+## O que dá para fazer
 
-## ✨ Funcionalidades Principais
+| Aba | Situação | Fluxo |
+| --- | --- | --- |
+| **Chat Especializado** | Funcional | Informe a sua chave da API do Gemini e converse. A chave fica só na memória da aba e vai direto do navegador para a API do Google. As últimas mensagens seguem no prompt como contexto da conversa. |
+| **Análise de Documentos** | Protótipo | Envio de vários arquivos com progresso, biblioteca com resumo e busca. Arquivos de texto são lidos no navegador; PDF e Word mostram um conteúdo de exemplo, e a busca filtra por palavra-chave com uma nota de relevância ilustrativa. |
+| **Assistente Pessoal** | Protótipo | Agentes de pesquisa, planejamento e execução, workflows (como uma pesquisa de mercado em três etapas) e tarefas com prioridade e status. A execução é simulada com temporizadores. |
 
-O sistema é dividido em três áreas principais, cada uma com funcionalidades avançadas:
+## Stack
 
-### 🤖 1. Chat Especializado (com Gemini)
-- **Conversação com Memória:** Interaja com um assistente de IA que mantém o contexto de suas conversas anteriores para fornecer respostas mais precisas e relevantes.
-- **Configuração Segura:** Sua chave de API do Google Gemini é gerenciada de forma segura no lado do cliente, garantindo que ela nunca seja exposta.
-- **Interface Intuitiva:** Um layout de chat familiar com indicadores de digitação, timestamps e gerenciamento de histórico.
+React 18 · TypeScript · Vite 5 · Tailwind CSS 3 · shadcn/ui · TanStack Query · React Router · Google Generative AI SDK (`@google/generative-ai`, modelo `gemini-3.6-flash`) · Supabase (cliente e migrations).
 
-### 📄 2. Análise de Documentos (com RAG)
-- **Upload Flexível:** Carregue múltiplos documentos de diversos formatos, como PDF, Word (.docx), Excel (.xlsx) e texto.
-- **Busca Semântica:** Vá além da busca por palavras-chave. Pergunte em linguagem natural e encontre os trechos mais relevantes dentro de sua base de conhecimento, com base no significado e contexto.
-- **Biblioteca Inteligente:** Todos os documentos são processados, indexados e organizados em uma biblioteca, com resumos gerados automaticamente.
+## Arquitetura
 
-### 🎯 3. Assistente Pessoal (com LangGraph)
-- **Agentes Autônomos:** Utilize agentes de IA pré-configurados (Pesquisa, Planejamento, Execução) que possuem capacidades específicas para resolver problemas.
-- **Workflows Complexos:** Crie e execute fluxos de trabalho que combinam as habilidades de múltiplos agentes para realizar tarefas complexas, como uma pesquisa de mercado completa.
-- **Gerenciamento de Tarefas:** Atribua tarefas individuais aos agentes, defina prioridades e acompanhe o status de execução em tempo real.
+```
+src/
+├── components/
+│   ├── ChatInterface.tsx       # chat com o Gemini e contexto da conversa
+│   ├── DocumentAnalysis.tsx    # envio, biblioteca e busca (protótipo)
+│   ├── PersonalAssistant.tsx   # agentes, workflows e tarefas (protótipo)
+│   ├── Layout.tsx              # cabeçalho e abas
+│   └── ui/                     # componentes shadcn/ui
+├── lib/gemini.ts               # cliente do Gemini: modelo de chat e embeddings
+├── lib/supabase.ts             # cliente do Supabase
+└── integrations/supabase/      # tipos gerados do banco
+supabase/migrations/            # profiles, documents (embeddings VECTOR(768)), agents, workflows e tasks, com RLS
+```
 
----
+## Rodando localmente
 
-## 🛠️ Tecnologias Utilizadas
-
-- **Frontend:** [Next.js](https://nextjs.org/), [React](https://react.dev/), [TypeScript](https://www.typescriptlang.org/)
-- **IA Generativa:** [Google Gemini 1.5 Pro](https://deepmind.google/technologies/gemini/)
-- **Embeddings:** `embedding-001` (Google AI)
-- **Orquestração de Agentes:** Conceitos de [LangGraph](https://langchain-ai.github.io/langgraph/)
-- **Técnica de Busca:** [RAG (Retrieval-Augmented Generation)](https://research.ibm.com/blog/retrieval-augmented-generation)
-- **UI/Componentes:** [shadcn/ui](https://ui.shadcn.com/), [Tailwind CSS](https://tailwindcss.com/)
-
----
-
-## 🚀 Como Executar o Projeto
-
-Siga os passos abaixo para clonar e rodar o projeto em seu ambiente local.
-
-### Pré-requisitos
-- [Node.js](https://nodejs.org/) (versão 18 ou superior)
-- [Git](https://git-scm.com/)
-- Uma **chave de API do Google Gemini**. Você pode obter uma no [Google AI Studio](https://aistudio.google.com/app/apikey).
-
-### 1. Clonar o Repositório
-Abra seu terminal e clone o projeto usando o seguinte comando:
 ```bash
-git clone [https://github.com/renanfrontend/gemini-beyond-prompts.git](https://github.com/renanfrontend/gemini-beyond-prompts.git)
-
-2. Navegar para o Diretório
-Entre na pasta do projeto que você acabou de clonar:
-cd gemini-beyond-prompts
-
-3. Instalar as Dependências
-Instale todas as dependências necessárias com o npm (ou seu gerenciador de pacotes preferido):
 npm install
+npm run dev          # http://localhost:8080
+```
 
-4. Executar o Projeto
-Inicie o servidor de desenvolvimento:
-npm run dev
+| Script | O que faz |
+| --- | --- |
+| `npm run build` | Build de produção |
+| `npm run build:dev` | Build em modo de desenvolvimento |
+| `npm run lint` | ESLint |
+| `npm run preview` | Serve o build local |
 
-5. Abrir no Navegador
-Abra seu navegador e acesse http://localhost:3000.
-🔧 Configuração Inicial
-Ao iniciar o aplicativo pela primeira vez, você precisará configurar sua chave de API do Google Gemini para ativar as funcionalidades de IA.
- * Acesse a aba "Chat Especializado".
- * Insira sua chave de API do Google Gemini no campo solicitado.
- * Clique no botão "Configurar Gemini".
-Uma vez configurado, o sistema estará pronto para uso! Você pode começar a conversar com o assistente, fazer upload de documentos e explorar os workflows dos agentes.
-Aproveite o poder da IA generativa e dos sistemas autônomos! 🎉
+A chave do Gemini não fica no código nem em variáveis de ambiente: ela é informada na própria tela. Gere uma no [Google AI Studio](https://aistudio.google.com/app/apikey). O `.env` traz só a URL e a chave pública (publishable) do projeto Supabase, que o cliente do navegador usa.
 
+## Premissas e limites
+
+- Só o chat chama um modelo de IA. A análise de documentos e o assistente ainda não usam o Gemini.
+- A função de embeddings (`generateEmbedding`) existe em `src/lib/gemini.ts`, mas ainda não é chamada.
+- O banco está modelado nas migrations, mas a aplicação ainda não grava nada: documentos, conversas e tarefas ficam na memória e somem ao recarregar.
+
+## Evolução possível
+
+Extração real de texto de PDF e Word, embeddings gravados no pgvector com busca por similaridade, agentes executando etapas com o Gemini, login com o Supabase Auth e histórico persistente. São próximos passos, não recursos implementados.
+
+## Autoria
+
+Concepção, prompts e direção do projeto por **Renan Augusto dos Santos** ([renanaugusto.com.br](https://renanaugusto.com.br) · [contato@renanaugusto.com.br](mailto:contato@renanaugusto.com.br)). A base do código foi gerada com o Lovable, ferramenta de desenvolvimento com IA, a partir dessas instruções.
+
+## Licença e direitos autorais
+
+© 2025–2026 Renan Augusto dos Santos. **Todos os direitos reservados.**
+
+Este não é um projeto open source. O código está público apenas para fins de portfólio e avaliação profissional. Sem autorização por escrito, não é permitido:
+
+- copiar, modificar, redistribuir ou usar comercialmente o projeto, no todo ou em parte;
+- reescrever o projeto em outra stack a partir deste repositório, ou reutilizar a interface, os prompts e os textos;
+- apresentar o projeto, ou parte dele, como trabalho próprio em portfólios, processos seletivos ou propostas comerciais;
+- usar o conteúdo do repositório ou da demo para treinar ou avaliar modelos de IA.
+
+Os termos completos estão em [LICENSE](LICENSE). Dependências e componentes de terceiros mantêm suas próprias licenças. Pedidos de autorização: [contato@renanaugusto.com.br](mailto:contato@renanaugusto.com.br).
+
+---
+
+## 🇺🇸 English
+
+Gemini Beyond Prompts is an AI dashboard prototype by **Renan Augusto dos Santos**, with three modules: a chat backed by the Google Gemini API, a RAG-style document analysis screen and an assistant with agents inspired by LangGraph. The chat calls Gemini for real (your API key stays in the tab's memory); the document and assistant modules are interface prototypes with simulated processing, and the database for the full version (Supabase with pgvector) is already modeled. Built with React 18, TypeScript, Vite, Tailwind CSS and shadcn/ui.
+
+© 2025–2026 Renan Augusto dos Santos. All rights reserved. This is not open source. The source is public for portfolio evaluation only; copying, modifying, porting, redistributing, commercial use, presenting it as your own work or using it to train AI models requires written permission. See [LICENSE](LICENSE). Contact: [contato@renanaugusto.com.br](mailto:contato@renanaugusto.com.br) · [renanaugusto.com.br](https://renanaugusto.com.br).
